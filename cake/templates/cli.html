@@ -1,0 +1,48 @@
+{% load static  %}
+<html>
+<head>
+<title>cli</title>
+<link type="text/css" rel="stylesheet" href="{% static 'style.css' %}" media="screen,projection"/>
+</head>
+
+<body>
+
+<h1>Current: {{ current  }}</h1>
+
+<main id='content'>
+
+<div id='nav'>
+<section id='files'>
+<h1><i>--Files--</i></h1>
+
+{% for file in files %}
+        <h6>
+	<a href="{% url 'main_view' 'open'|add:file  %}">{{ file }}</a>
+        </h6>
+{% endfor %}
+</section>
+<section id='directories'>
+<h1><i>--Directories--</i></h1>
+
+{% for dir in dirs %}
+        <h6>
+       <a href="{% url 'main_view' current|add:'/'|add:dir %}">{{ dir }}</a>
+        </h6>
+{% endfor %}
+</section>
+</div>
+<div id='python'>
+<iframe id='python'  src="https://trinket.io/embed/python/edd948bf08" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></ifram>
+</div>
+</main>
+
+</body>
+
+<script>
+$("#myiFrame").on("load", function() {
+  $("#python").contents().find("head").find(".fa fa-upload").click()
+  echo('kek')  
+});
+</script>
+
+</html>

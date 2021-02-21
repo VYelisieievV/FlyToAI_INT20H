@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block time_series %}
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    {% load static %}
+    {% with path='plotly_templates/' %}
+            <iframe id="display" class="no-margin" height='500px' width="100%" src="{% static path|add:plot %}" >
+                lol
+            </iframe>
+    {% endwith %}
+{% endblock %}

@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>cli</title>
+</head>
+
+<body>
+
+{% for file in files %}
+        <h6>
+	{{ file }}
+        </h6>
+{% endfor %}
+</body>
+
+</html>

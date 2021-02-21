@@ -1,0 +1,32 @@
+<html>
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        {% with style='style.css' %}
+            <link rel="stylesheet" type="text/css" href="{% static style %}">
+        {% endwith %}
+        <title>results</title>
+    </head>
+    <body>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <main>
+            <header>
+            </header>
+            <section id="main_container">
+                {% block login %}
+                {% endblock %}
+                {% with path='plotly_templates/' html='.html' dot='.'%}
+                {% for key, value in links.items %}
+                <section class="picture" id="value|add:dot|add:key">
+                        <iframe id="display" height="500px" width="100%" src='{% static path|add:value|add:html %}'></iframe>
+                        <div id="bread">
+                            <img height="500px" class="pic" src="{% static 'pics/Bachmann/'|add:key|add:'.jpg' %}">
+                        </div>
+                </section>
+                {% endfor %}
+                {% endwith %}
+            </section>
+        </main>
+        
+    </body>
+</html>
